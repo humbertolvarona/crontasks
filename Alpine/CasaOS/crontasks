@@ -1,0 +1,58 @@
+name: crontasks
+services:
+  app:
+    cpu_shares: 90
+    command: []
+    deploy:
+      resources:
+        limits:
+          memory: 200M
+    environment:
+      - TIMEZONE=America/Recife
+    image: humbertovarona/alpcrontasks:v3
+    labels:
+      icon: https://raw.githubusercontent.com/humbertolvarona/crontasks/refs/heads/main/Alpine/logo_crontasks.png
+    restart: unless-stopped
+    volumes:
+      - type: bind
+        source: /DATA/AppData/crontasks/data
+        target: /usr/src/app/shared/data
+      - type: bind
+        source: /DATA/AppData/crontasks/crontasks
+        target: /usr/src/app/crontasks
+      - type: bind
+        source: /DATA/AppData/crontasks/scripts
+        target: /usr/src/app/scripts
+    x-casaos:
+      envs:
+        - container: TIMEZONE
+          description:
+            en_us: Specify a timezone to use.
+    devices: []
+    cap_add: []
+    network_mode: ""
+    privileged: false
+    container_name: "alpcrontasks"
+    hostname: ""
+x-casaos:
+  architectures:
+    - amd64
+  author: Humberto L. Varona
+  category: VaronaTech
+  description:
+    en_us: Task automation using Python and Bash shell scripts.
+  developer: Humberto L. Varona
+  hostname: ""
+  icon: https://raw.githubusercontent.com/humbertolvarona/crontasks/refs/heads/main/Alpine/logo_crontasks.png
+  index: /
+  is_uncontrolled: false
+  main: app
+  scheme:
+  store_app_id: ""
+  tagline:
+    en_us: Task automation using Python and Bash shell scripts.
+  thumbnail: https://raw.githubusercontent.com/humbertolvarona/crontasks/refs/heads/main/Alpine/logo_crontasks.png
+  title:
+    custom: ""
+    en_us: Crontasks
+
