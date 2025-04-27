@@ -1,0 +1,9 @@
+version: '3'
+services:
+  crontasks:
+    container_name: crontasks
+    image: 'humbertovarona/alpcrontasks:v3'
+    volumes:
+      - $(pwd)/shared/data:/usr/src/app/shared/data
+      - $(pwd)/crontasks:/usr/src/app/crontasks
+      - $(pwd)/scripts:/usr/src/app/scripts
