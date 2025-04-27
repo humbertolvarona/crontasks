@@ -8,7 +8,7 @@
  
 ## Overview
 
-The `humbertovarona/debcrontasks:v1`,  `humbertovarona/ubucrontasks:v1`, and `humbertovarona/alpcrontasks:v1` docker images are designed to execute scheduled tasks using cron. This image includes Python 3, various downloading utilities, and provides the capability to mount local scripts and cron tasks. Logs are accessible within the container, facilitating easy monitoring and debugging of cron jobs.
+The `humbertovarona/debcrontasks:v1`,  `humbertovarona/ubucrontasks:v1`, and `humbertovarona/alpcrontasks:v3` docker images are designed to execute scheduled tasks using cron. This image includes Python 3, various downloading utilities, and provides the capability to mount local scripts and cron tasks. Logs are accessible within the container, facilitating easy monitoring and debugging of cron jobs.
 
 ## Version
 
@@ -64,10 +64,10 @@ docker pull humbertovarona/ubucrontasks:v1
 
 ### Alpine-based Version
 
-To pull the Ubuntu-based version of the `alpcrontasks ` Docker image, run the following command:
+To pull the Alpine-based version of the `alpcrontasks ` Docker image, run the following command:
 
 ```bash
-docker pull humbertovarona/alpcrontasks:v1
+docker pull humbertovarona/alpcrontasks:v3
 ```
 
 ## Features
@@ -117,7 +117,7 @@ docker run -d --name my-cron-container -v "$(pwd)/shared/data:/usr/src/app/share
 Or 
 
 ```sh
-docker run -d --name my-cron-container -v "$(pwd)/shared/data:/usr/src/app/shared/data" -v "$(pwd)/crontasks:/usr/src/app/crontasks" -v "$(pwd)/scripts:/usr/src/app/scripts" humbertovarona/alpcrontasks:v1
+docker run -d --name my-cron-container -v "$(pwd)/shared/data:/usr/src/app/shared/data" -v "$(pwd)/crontasks:/usr/src/app/crontasks" -v "$(pwd)/scripts:/usr/src/app/scripts" humbertovarona/alpcrontasks:v3
 ```
 
 ### Example `crontab` File
